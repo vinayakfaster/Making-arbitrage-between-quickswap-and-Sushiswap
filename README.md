@@ -1,28 +1,35 @@
-# Making-arbitrage-between-Quickswap-and-Sushiswap
-you can change exchange (dex) by changing factory and router addresss and abi but it support only uniswap forked dex 
+Arbitrage Between Uniswap V2 and Sushiswap
+This repository contains a smart contract that can be deployed on the Ethereum mainnet using Remix IDE. Additionally, there's a bot (watcher.js) designed to monitor prices 24/7 on Sushiswap and Uniswap V2. When the bot identifies an opportunity to make a profit, it initiates a flash loan from the Aave lending pool and executes an arbitrage swap on both exchanges.
 
+Features:
+Smart contract for arbitrage trading between Uniswap V2 and Sushiswap.
+watcher.js bot for continuous price monitoring and arbitrage execution.
+Flexibility to change exchange (DEX) by adjusting factory and router addresses and ABIs.
+Supports only Uniswap forked DEX.
+Easily deployable on Ethereum mainnet using Remix IDE.
+Requires setting up a provider, currently configured to use Infura, but easily adjustable.
+Deploy the arbitrager contract for use with watcher.js. Additionally, deploy the utils contract.
+Assumes ownership of an account with sufficient ETH for gas and fees.
+Note: The bots are not production-ready. Use at your own risk.
 
-Making arbitrage between Uniswap V2 and Sushiswap
+Installation:
+Clone the repository:
 
-What its included in this repo?
+bash
+Copy code
+git clone <repository_url>
+Install dependencies:
 
-there is an Smartcontract which can be deployed on mainnet using remix IDE
-
-watcher.js is a bot which monitor price 27*7 on sushiswap nd quickswap when bot finds an opportunity to make a profit it take a flashloan from aave lending pool 
-and make a arbitrage swap on both exchange 
-
-Running on a ethereum network
-Need to set up a provider, the code its setted up to use Infura but you can easily change it.
-
-Deploy the arbitrager contract if you gonna use watcher.js and in both cases you need to deploy the utils contract.
-
-Assuming you own an account with the enough eth for paying the gas and fees (and if you use normal swap the tokens as well) you are ready to run the bots. Remember that as they are, the bots are not ready for production and even with the changes proposed bellow I dont recommend use them for that porpuse, do it at your own risk.
-
-Notes
-10/07/21 -> If u are having gas issues, check out this tiny thread
-
-14/06/21 -> I realize that the arbitrage, in the manner that I did it, its not rigth conceptually. The proper way, I think, it would have been using a CEX (Centralized EXchange) like Binance or Coinbase as off-chain oracle and use Avee flashloans (similar to how flashswaps works) to arbitrage whatever DEX (Decentralized EXchanges) I wished. The only 'drawback' that I can see with this approach is that you must pay back the flashloan in the same asset you borrow so you probably need and extra trade. Personally I only understand how Uniswap like exchanges works, in other words, AMMs that uses the constant product formula to set the price. What Im trying to say its that I dont know if other kind of AMMs are arbitrageable (I remember hear about a DEX that auto regulates its prices), so keep that in mind. But, that said, I think it is a good project to get confidence with the ethereum blackchain, understand how it works, the software stack and learn how one of the most important protocols that the network has, Uniswap, works. Good luck!
-
-Installation
-clone the repo
-npm install 
+bash
+Copy code
+npm install
+Usage:
+Deploy the smart contract on Remix IDE for mainnet deployment.
+Configure the provider to use Infura or any preferred Ethereum provider.
+Ensure sufficient ETH balance in the account for gas and fees.
+Run the watcher.js bot for continuous arbitrage monitoring and execution.
+Adjust the settings and parameters as needed for your specific use case.
+Notes:
+If experiencing gas issues, refer to the provided thread for potential solutions.
+Conceptual clarification: Arbitrage is not ideal in its current implementation. Consider using a centralized exchange (CEX) as an off-chain oracle and Aave flash loans for arbitrage execution.
+Exercise caution and conduct thorough testing before deploying to production.
